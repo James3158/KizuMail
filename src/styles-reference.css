@@ -1,0 +1,1362 @@
+/*
+ * KizuMail reference surface
+ *
+ * The product UI uses opaque, quiet surfaces instead of glass layers. This
+ * stylesheet is loaded after the historical styles so the visual direction
+ * can evolve without touching the interaction and data components.
+ */
+:root {
+  --ref-app: #080c12;
+  --ref-sidebar: #0b1017;
+  --ref-panel: #0e141d;
+  --ref-panel-raised: #121a24;
+  --ref-card: #151c26;
+  --ref-card-hover: #1a222d;
+  --ref-card-selected: #211946;
+  --ref-border: #252e3a;
+  --ref-border-strong: #344052;
+  --ref-text: #f4f6fa;
+  --ref-secondary: #b7bfcd;
+  --ref-muted: #7e899a;
+  --ref-purple: #7544f4;
+  --ref-purple-soft: #9271ff;
+  --ref-success: #2ee98c;
+  --ref-warning: #f6c945;
+  --ref-danger: #ff5c7a;
+  --ref-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --ref-app: #edf1f6;
+  --ref-sidebar: #f8f9fc;
+  --ref-panel: #f4f6fa;
+  --ref-panel-raised: #ffffff;
+  --ref-card: #ffffff;
+  --ref-card-hover: #f1f3f8;
+  --ref-card-selected: #eee9ff;
+  --ref-border: #dce2eb;
+  --ref-border-strong: #c9d1df;
+  --ref-text: #172131;
+  --ref-secondary: #4d596c;
+  --ref-muted: #788397;
+  --ref-shadow: 0 16px 34px rgba(33, 43, 63, 0.10);
+}
+
+html,
+body {
+  background: var(--ref-app) !important;
+}
+
+body {
+  background-image: none !important;
+}
+
+/* No surface in the application relies on blur or translucency anymore. */
+.mail-window.kizumail-redesign,
+.mail-window.kizumail-redesign *,
+.modal-backdrop,
+.modal-backdrop * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.mail-window.kizumail-redesign {
+  grid-template-columns: 258px minmax(390px, 28vw) minmax(0, 1fr);
+  border: 1px solid var(--ref-border-strong);
+  border-radius: 18px;
+  background: var(--ref-app) !important;
+  background-image: none !important;
+  box-shadow: var(--ref-shadow);
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .left-rail {
+  gap: 25px;
+  padding: 22px 16px 18px;
+  border-right: 1px solid var(--ref-border);
+  background: var(--ref-sidebar) !important;
+  background-image: none !important;
+}
+
+.kizumail-redesign .brand {
+  gap: 12px;
+  padding: 0 8px;
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .brand-gem {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--ref-purple);
+  background: var(--ref-purple) !important;
+  box-shadow: none;
+}
+
+.kizumail-redesign .brand-gem span {
+  width: 9px;
+  height: 9px;
+  background: var(--ref-sidebar);
+  box-shadow: none;
+}
+
+.kizumail-redesign .compose-button {
+  grid-template-columns: 1fr 45px;
+  height: 48px;
+  border: 1px solid #875fff;
+  border-radius: 13px;
+  background: var(--ref-purple) !important;
+  background-image: none !important;
+  box-shadow: 0 8px 20px rgba(117, 68, 244, 0.20);
+  font-size: 14px;
+}
+
+.kizumail-redesign .compose-button:hover {
+  background: #8256fa !important;
+  box-shadow: 0 10px 24px rgba(117, 68, 244, 0.28);
+  transform: translateY(-1px);
+}
+
+.kizumail-redesign .compose-button svg {
+  height: 48px;
+  border-left-color: rgba(255, 255, 255, 0.24);
+}
+
+.kizumail-redesign .section-title {
+  min-height: 28px;
+  padding: 0 8px;
+  color: var(--ref-muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.kizumail-redesign .section-title button {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  color: var(--ref-secondary);
+  background: transparent;
+}
+
+.kizumail-redesign .section-title button:hover {
+  color: var(--ref-text);
+  background: var(--ref-card-hover);
+}
+
+.kizumail-redesign .account-row {
+  gap: 5px;
+}
+
+.kizumail-redesign .account-sync-button {
+  min-height: 42px;
+  gap: 10px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  padding: 0 8px;
+  background: transparent;
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .account-sync-button:hover {
+  border-color: var(--ref-border);
+  background: var(--ref-card-hover);
+  transform: translateY(-1px);
+}
+
+.kizumail-redesign .account-label {
+  gap: 2px;
+}
+
+.kizumail-redesign .account-label strong {
+  color: var(--ref-text);
+  font-size: 13px;
+}
+
+.kizumail-redesign .account-label small {
+  color: var(--ref-muted);
+  font-size: 10px;
+}
+
+.kizumail-redesign .account-sync-button em {
+  border: 1px solid var(--ref-border);
+  border-radius: 999px;
+  padding: 4px 7px;
+  color: var(--ref-purple-soft);
+  background: var(--ref-card);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 750;
+}
+
+.kizumail-redesign .account-remove-button {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  color: var(--ref-muted);
+  background: transparent;
+}
+
+.kizumail-redesign .account-remove-button:hover {
+  color: var(--ref-danger);
+  background: #2a1720;
+}
+
+.kizumail-redesign .nav-row {
+  min-height: 40px;
+  gap: 11px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  padding: 0 10px;
+  color: var(--ref-secondary);
+  background: transparent;
+}
+
+.kizumail-redesign .nav-row:hover {
+  color: var(--ref-text);
+  background: var(--ref-card-hover);
+  transform: translateX(1px);
+}
+
+.kizumail-redesign .nav-row.active {
+  border-color: #3b2c72;
+  background: var(--ref-card-selected) !important;
+  box-shadow: none;
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .nav-row.active svg {
+  color: var(--ref-purple-soft);
+}
+
+.kizumail-redesign .online-state {
+  padding: 12px 10px 0;
+  border-top: 1px solid var(--ref-border);
+  color: var(--ref-muted);
+  font-size: 11px;
+}
+
+.kizumail-redesign .message-column {
+  grid-template-rows: 62px minmax(0, 1fr);
+  padding: 14px 10px 12px;
+  background: var(--ref-panel) !important;
+  background-image: none !important;
+}
+
+.kizumail-redesign .top-search {
+  height: 44px;
+  border: 1px solid var(--ref-border);
+  border-radius: 13px;
+  padding: 0 10px 0 16px;
+  background: var(--ref-panel-raised) !important;
+  background-image: none !important;
+  box-shadow: none;
+  color: var(--ref-muted);
+}
+
+.kizumail-redesign .top-search:focus-within {
+  border-color: #6d50c9;
+  box-shadow: 0 0 0 3px rgba(117, 68, 244, 0.12);
+}
+
+.kizumail-redesign .top-search input {
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .top-search input::placeholder {
+  color: var(--ref-muted);
+}
+
+.kizumail-redesign .top-search > button,
+.kizumail-redesign .top-search .theme-orb,
+.kizumail-redesign .search-theme-orb {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--ref-border);
+  border-radius: 9px;
+  background: var(--ref-card) !important;
+  color: var(--ref-secondary);
+  box-shadow: none;
+}
+
+.kizumail-redesign .top-search > button:hover,
+.kizumail-redesign .search-theme-orb:hover {
+  border-color: #6d50c9;
+  background: var(--ref-card-hover) !important;
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .inbox-panel {
+  border: 1px solid var(--ref-border);
+  border-radius: 16px;
+  background: var(--ref-panel) !important;
+  background-image: none !important;
+  box-shadow: none;
+}
+
+.kizumail-redesign .list-header {
+  height: 74px;
+  border-bottom: 1px solid var(--ref-border);
+  padding: 0 18px;
+}
+
+.kizumail-redesign .list-header h1 {
+  color: var(--ref-text);
+  font-size: 18px;
+}
+
+.kizumail-redesign .list-header > div:first-child span {
+  color: var(--ref-purple-soft);
+}
+
+.kizumail-redesign .list-actions {
+  gap: 6px;
+}
+
+.kizumail-redesign .list-actions > button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--ref-muted);
+  background: transparent;
+}
+
+.kizumail-redesign .list-actions > button:hover {
+  border-color: var(--ref-border);
+  background: var(--ref-card-hover);
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .mail-list {
+  height: calc(100vh - 152px);
+  padding: 16px 10px 22px;
+  background: var(--ref-panel) !important;
+}
+
+.kizumail-redesign .mail-date-group {
+  gap: 7px;
+  padding-bottom: 18px;
+}
+
+.kizumail-redesign .mail-date-group h2 {
+  padding: 0 7px 4px;
+  color: var(--ref-muted);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.kizumail-redesign .mail-row {
+  grid-template-columns: 48px minmax(0, 1fr) 9px;
+  min-height: 84px;
+  gap: 13px;
+  border: 1px solid var(--ref-border);
+  border-radius: 14px;
+  padding: 13px 14px;
+  background: var(--ref-card) !important;
+  background-image: none !important;
+  box-shadow: none;
+}
+
+.kizumail-redesign .mail-row:hover {
+  border-color: var(--ref-border-strong);
+  background: var(--ref-card-hover) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+  transform: translateY(-1px);
+}
+
+.kizumail-redesign .mail-row.selected {
+  border-color: #6346c3;
+  background: var(--ref-card-selected) !important;
+  box-shadow: 0 8px 22px rgba(53, 33, 123, 0.16);
+}
+
+.kizumail-redesign .mail-row.read:not(.selected) {
+  opacity: 1;
+  background: #101720 !important;
+}
+
+.kizumail-redesign .mail-row-content strong,
+.kizumail-redesign .mail-row-content h2 {
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .mail-row-content p,
+.kizumail-redesign .mail-row time {
+  color: var(--ref-muted);
+}
+
+.kizumail-redesign .unread-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--ref-purple-soft);
+  box-shadow: none;
+}
+
+.kizumail-redesign .reader-shell,
+.kizumail-redesign .reader-grid,
+.kizumail-redesign .message-reader {
+  background: var(--ref-panel) !important;
+  background-image: none !important;
+}
+
+.kizumail-redesign .message-reader {
+  border-right: 1px solid var(--ref-border);
+}
+
+.kizumail-redesign .reader-toolbar {
+  height: 58px;
+  border-bottom: 1px solid var(--ref-border);
+  padding: 0 24px;
+  color: var(--ref-secondary);
+}
+
+.kizumail-redesign .reader-toolbar button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--ref-secondary);
+  background: transparent;
+}
+
+.kizumail-redesign .reader-toolbar button:not(:disabled):hover {
+  border-color: var(--ref-border);
+  background: var(--ref-card-hover);
+  color: var(--ref-text);
+  box-shadow: none;
+}
+
+.kizumail-redesign .mail-detail {
+  padding: 28px clamp(20px, 2.5vw, 38px) 44px;
+  background: var(--ref-panel) !important;
+}
+
+.kizumail-redesign .reader-title-row h1,
+.kizumail-redesign .subject-row h1 {
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .subject-meta,
+.kizumail-redesign .sender-row small,
+.kizumail-redesign .sender-row time {
+  color: var(--ref-muted);
+}
+
+.kizumail-redesign .reader-message-card {
+  min-height: 520px;
+  border: 1px solid var(--ref-border-strong);
+  border-radius: 18px;
+  background: var(--ref-card) !important;
+  background-image: none !important;
+  box-shadow: none;
+}
+
+.kizumail-redesign .reader-message-hero {
+  min-height: 210px;
+  border-bottom: 1px solid var(--ref-border);
+  padding: 32px 34px;
+  background: var(--ref-panel-raised) !important;
+  background-image: none !important;
+}
+
+.kizumail-redesign .reader-message-hero h3 {
+  color: var(--ref-text);
+  letter-spacing: -0.035em;
+}
+
+.kizumail-redesign .reader-message-hero p,
+.kizumail-redesign .curated-mail-body p {
+  color: var(--ref-secondary);
+}
+
+.kizumail-redesign .curated-mail-body {
+  padding: 34px 34px 24px 84px;
+}
+
+.kizumail-redesign .mail-insight-grid {
+  padding: 8px 34px 32px 84px;
+}
+
+.kizumail-redesign .mail-insight-grid article {
+  border: 1px solid var(--ref-border);
+  border-radius: 14px;
+  background: var(--ref-panel-raised) !important;
+  background-image: none !important;
+}
+
+.kizumail-redesign .newsletter-alert {
+  border: 1px solid var(--ref-border);
+  border-radius: 13px;
+  background: var(--ref-panel-raised) !important;
+  color: var(--ref-secondary);
+}
+
+.kizumail-redesign .reply-bar {
+  min-height: 76px;
+  border-top: 1px solid var(--ref-border);
+  background: var(--ref-panel) !important;
+  background-image: none !important;
+}
+
+.kizumail-redesign .reply-bar button,
+.kizumail-redesign .quick-reply-trigger {
+  min-height: 38px;
+  border: 1px solid var(--ref-border);
+  border-radius: 11px;
+  background: var(--ref-card) !important;
+  color: var(--ref-secondary);
+}
+
+.kizumail-redesign .reply-bar button:hover,
+.kizumail-redesign .quick-reply-trigger:hover {
+  border-color: #6145b8;
+  background: var(--ref-card-hover) !important;
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .inspector {
+  padding: 22px 14px 18px;
+  border-left: 1px solid var(--ref-border);
+  background: var(--ref-sidebar) !important;
+  background-image: none !important;
+}
+
+.kizumail-redesign .inspector h3 {
+  color: var(--ref-muted);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+}
+
+.kizumail-redesign .sender-card,
+.kizumail-redesign .info-block,
+.kizumail-redesign .chart-block,
+.kizumail-redesign .option-block {
+  border: 1px solid var(--ref-border);
+  border-radius: 15px;
+  background: var(--ref-panel) !important;
+  background-image: none !important;
+  box-shadow: none;
+}
+
+.kizumail-redesign .sender-card {
+  padding: 16px 13px;
+}
+
+.kizumail-redesign .info-block,
+.kizumail-redesign .chart-block,
+.kizumail-redesign .option-block {
+  padding: 15px 13px;
+}
+
+.kizumail-redesign .sender-card strong,
+.kizumail-redesign .info-line strong,
+.kizumail-redesign .chart-header strong {
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .info-line span,
+.kizumail-redesign .chart-header span,
+.kizumail-redesign .months,
+.kizumail-redesign .option-block h3 {
+  color: var(--ref-muted);
+}
+
+.kizumail-redesign .option-block button {
+  min-height: 34px;
+  border-radius: 9px;
+  color: var(--ref-secondary);
+  background: transparent;
+}
+
+.kizumail-redesign .option-block button:hover {
+  background: var(--ref-card-hover);
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .bars span {
+  background: var(--ref-purple) !important;
+  box-shadow: none;
+}
+
+.kizumail-redesign .workspace-panel {
+  border: 1px solid var(--ref-border);
+  border-radius: 16px;
+  padding: 24px;
+  background: var(--ref-panel) !important;
+  background-image: none !important;
+  box-shadow: none;
+}
+
+.kizumail-redesign .workspace-heading h2,
+.kizumail-redesign .workspace-heading p,
+.kizumail-redesign .rule-item,
+.kizumail-redesign .setting-switch,
+.kizumail-redesign .security-panel,
+.kizumail-redesign .oauth-panel,
+.kizumail-redesign .newsletter-subscription {
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .rule-item,
+.kizumail-redesign .setting-switch,
+.kizumail-redesign .security-panel,
+.kizumail-redesign .oauth-panel,
+.kizumail-redesign .newsletter-subscription {
+  border-color: var(--ref-border);
+  border-radius: 13px;
+  background: var(--ref-card) !important;
+  background-image: none !important;
+  box-shadow: none;
+}
+
+.kizumail-redesign .account-modal,
+.kizumail-redesign .composer-modal {
+  border: 1px solid var(--ref-border-strong);
+  border-radius: 16px;
+  background: var(--ref-panel-raised) !important;
+  background-image: none !important;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.44);
+}
+
+.kizumail-redesign .modal-backdrop {
+  background: rgba(3, 6, 10, 0.78) !important;
+}
+
+.kizumail-redesign .account-modal input,
+.kizumail-redesign .account-modal textarea,
+.kizumail-redesign .account-modal .km-dropdown-trigger,
+.kizumail-redesign .oauth-panel input {
+  border-color: var(--ref-border);
+  background: var(--ref-panel) !important;
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .account-modal input:focus,
+.kizumail-redesign .account-modal textarea:focus,
+.kizumail-redesign .account-modal .km-dropdown.is-open .km-dropdown-trigger {
+  border-color: #6d50c9;
+  box-shadow: 0 0 0 3px rgba(117, 68, 244, 0.12);
+}
+
+/* Dropdowns and menus use the same flat card surface as the rest of the app. */
+.kizumail-redesign .km-dropdown-menu,
+.kizumail-redesign .toolbar-menu,
+.kizumail-redesign .mail-context-menu {
+  border-color: var(--ref-border-strong);
+  border-radius: 14px;
+  background: var(--ref-panel-raised) !important;
+  background-image: none !important;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.30);
+}
+
+.kizumail-redesign .km-dropdown-menu-glow {
+  display: none;
+}
+
+.kizumail-redesign .km-dropdown-option,
+.kizumail-redesign .toolbar-menu button,
+.kizumail-redesign .mail-context-menu button {
+  color: var(--ref-secondary);
+}
+
+.kizumail-redesign .km-dropdown-option:hover,
+.kizumail-redesign .km-dropdown-option.is-active,
+.kizumail-redesign .toolbar-menu button:hover,
+.kizumail-redesign .mail-context-menu button:hover {
+  border-color: #3a2b70;
+  background: var(--ref-card-selected) !important;
+  color: var(--ref-text);
+  transform: none;
+}
+
+.kizumail-redesign .km-dropdown-option-copy small {
+  color: var(--ref-muted);
+}
+
+html[data-theme="light"] .kizumail-redesign {
+  border-color: var(--ref-border-strong);
+  box-shadow: var(--ref-shadow);
+}
+
+html[data-theme="light"] .kizumail-redesign .left-rail,
+html[data-theme="light"] .kizumail-redesign .inspector {
+  background: var(--ref-sidebar) !important;
+}
+
+html[data-theme="light"] .kizumail-redesign .message-column,
+html[data-theme="light"] .kizumail-redesign .reader-shell,
+html[data-theme="light"] .kizumail-redesign .reader-grid,
+html[data-theme="light"] .kizumail-redesign .message-reader,
+html[data-theme="light"] .kizumail-redesign .mail-detail,
+html[data-theme="light"] .kizumail-redesign .reply-bar,
+html[data-theme="light"] .kizumail-redesign .inbox-panel,
+html[data-theme="light"] .kizumail-redesign .mail-list {
+  background: var(--ref-panel) !important;
+}
+
+html[data-theme="light"] .kizumail-redesign .top-search,
+html[data-theme="light"] .kizumail-redesign .reader-message-hero,
+html[data-theme="light"] .kizumail-redesign .workspace-panel,
+html[data-theme="light"] .kizumail-redesign .account-modal,
+html[data-theme="light"] .kizumail-redesign .composer-modal {
+  background: var(--ref-panel-raised) !important;
+}
+
+html[data-theme="light"] .kizumail-redesign .mail-row,
+html[data-theme="light"] .kizumail-redesign .sender-card,
+html[data-theme="light"] .kizumail-redesign .info-block,
+html[data-theme="light"] .kizumail-redesign .chart-block,
+html[data-theme="light"] .kizumail-redesign .option-block,
+html[data-theme="light"] .kizumail-redesign .rule-item,
+html[data-theme="light"] .kizumail-redesign .setting-switch,
+html[data-theme="light"] .kizumail-redesign .security-panel,
+html[data-theme="light"] .kizumail-redesign .oauth-panel,
+html[data-theme="light"] .kizumail-redesign .newsletter-subscription,
+html[data-theme="light"] .kizumail-redesign .reader-message-card {
+  background: var(--ref-card) !important;
+  color: var(--ref-text);
+}
+
+html[data-theme="light"] .kizumail-redesign .mail-row:hover {
+  background: var(--ref-card-hover) !important;
+}
+
+html[data-theme="light"] .kizumail-redesign .mail-row.selected,
+html[data-theme="light"] .kizumail-redesign .nav-row.active,
+html[data-theme="light"] .kizumail-redesign .km-dropdown-option:hover,
+html[data-theme="light"] .kizumail-redesign .km-dropdown-option.is-active,
+html[data-theme="light"] .kizumail-redesign .toolbar-menu button:hover,
+html[data-theme="light"] .kizumail-redesign .mail-context-menu button:hover {
+  background: var(--ref-card-selected) !important;
+  border-color: #c4b8f5;
+}
+
+html[data-theme="light"] .kizumail-redesign .reader-message-hero {
+  border-bottom-color: var(--ref-border);
+}
+
+html[data-theme="light"] .kizumail-redesign .curated-mail-body p,
+html[data-theme="light"] .kizumail-redesign .reader-message-hero p {
+  color: var(--ref-secondary);
+}
+
+html[data-theme="light"] .kizumail-redesign .km-dropdown-menu,
+html[data-theme="light"] .kizumail-redesign .toolbar-menu,
+html[data-theme="light"] .kizumail-redesign .mail-context-menu {
+  background: var(--ref-panel-raised) !important;
+  box-shadow: 0 20px 44px rgba(33, 43, 63, 0.16);
+}
+
+html[data-theme="light"] .kizumail-redesign .km-dropdown-option,
+html[data-theme="light"] .kizumail-redesign .toolbar-menu button,
+html[data-theme="light"] .kizumail-redesign .mail-context-menu button {
+  color: var(--ref-secondary);
+}
+
+@media (max-width: 1450px) {
+  .mail-window.kizumail-redesign {
+    grid-template-columns: 238px minmax(350px, 34vw) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1100px) {
+  .mail-window.kizumail-redesign {
+    grid-template-columns: 224px minmax(340px, 38vw) minmax(0, 1fr);
+  }
+
+  .kizumail-redesign .inspector {
+    display: none;
+  }
+}
+
+@media (max-width: 850px) {
+  .mail-window.kizumail-redesign {
+    grid-template-columns: 218px minmax(0, 1fr);
+  }
+
+  .kizumail-redesign .reader-shell {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kizumail-redesign .compose-button:hover,
+  .kizumail-redesign .mail-row:hover,
+  .kizumail-redesign .nav-row:hover,
+  .kizumail-redesign .account-sync-button:hover {
+    transform: none;
+  }
+}
+
+/* Final contrast and control pass for the inbox and light theme. */
+.kizumail-redesign .brand-icon {
+  display: block;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #875fff;
+  border-radius: 9px;
+  object-fit: cover;
+  box-shadow: none;
+}
+
+.kizumail-redesign .list-actions .km-dropdown {
+  flex: 0 0 auto;
+}
+
+.kizumail-redesign .list-actions .list-filter-control {
+  min-width: 104px;
+  height: 36px;
+}
+
+.kizumail-redesign .list-actions .account-filter-control {
+  min-width: 142px;
+}
+
+.kizumail-redesign .list-actions .sort-control {
+  min-width: 112px;
+}
+
+.kizumail-redesign .list-actions .list-filter-control .km-dropdown-trigger {
+  border: 1px solid var(--ref-border);
+  background: var(--ref-panel-raised) !important;
+  color: var(--ref-text);
+  font-weight: 650;
+}
+
+.kizumail-redesign .list-actions .list-filter-control .km-dropdown-trigger:hover,
+.kizumail-redesign .list-actions .list-filter-control.is-open .km-dropdown-trigger {
+  border-color: #6d50c9;
+  background: var(--ref-card-hover) !important;
+  color: var(--ref-text);
+}
+
+.kizumail-redesign .list-actions .km-dropdown-menu {
+  min-width: 270px;
+  padding: 9px;
+}
+
+.kizumail-redesign .list-actions .account-filter-control .km-dropdown-menu {
+  min-width: 292px;
+}
+
+.kizumail-redesign .km-dropdown-menu-title {
+  position: relative;
+  z-index: 1;
+  padding: 5px 10px 9px;
+  border-bottom: 1px solid var(--ref-border);
+  color: var(--ref-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.kizumail-redesign .km-dropdown-option {
+  min-height: 54px;
+  padding: 10px 11px;
+}
+
+.kizumail-redesign .km-dropdown-option-copy {
+  gap: 4px;
+}
+
+.kizumail-redesign .km-dropdown-option-copy strong {
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.kizumail-redesign .km-dropdown-option-copy small {
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.kizumail-redesign .reader-toolbar {
+  background: var(--ref-panel) !important;
+  background-image: none !important;
+}
+
+html[data-theme="light"] .kizumail-redesign .reader-toolbar,
+html[data-theme="light"] .kizumail-redesign .message-reader {
+  background: var(--ref-panel) !important;
+  color: var(--ref-secondary);
+}
+
+html[data-theme="light"] .kizumail-redesign .reader-toolbar button {
+  color: var(--ref-secondary);
+}
+
+/* Viewport-safe dropdowns: quiet opaque surfaces, clear hierarchy and keyboard focus. */
+.kizumail-redesign .message-column {
+  container-type: inline-size;
+}
+
+.kizumail-redesign .inbox-panel {
+  overflow: hidden;
+}
+
+.kizumail-redesign .list-header {
+  min-width: 0;
+  height: auto;
+  min-height: 72px;
+  gap: 14px;
+}
+
+.kizumail-redesign .list-header > div:first-child {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.kizumail-redesign .list-header-status {
+  color: var(--ref-purple-soft);
+}
+
+.kizumail-redesign .list-actions {
+  min-width: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.kizumail-redesign .list-actions .list-filter-control {
+  min-width: 98px;
+}
+
+.kizumail-redesign .list-actions .account-filter-control {
+  min-width: 132px;
+}
+
+.kizumail-redesign .list-actions .sort-control {
+  min-width: 108px;
+}
+
+.kizumail-redesign .list-filter-control .km-dropdown-trigger-icon {
+  color: var(--ref-purple-soft);
+}
+
+.km-dropdown-menu {
+  z-index: 1000;
+  display: grid;
+  min-width: 268px;
+  overflow: hidden;
+  border: 1px solid var(--ref-border-strong) !important;
+  border-radius: 16px;
+  padding: 8px;
+  background: var(--ref-panel-raised) !important;
+  background-image: none !important;
+  box-shadow: var(--ref-shadow) !important;
+  backdrop-filter: none !important;
+}
+
+.account-dropdown-menu {
+  min-width: 292px;
+}
+
+.km-dropdown-menu-title {
+  padding: 7px 10px 10px;
+  border-bottom: 1px solid var(--ref-border);
+  color: var(--ref-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.km-dropdown-listbox {
+  display: grid;
+  min-height: 0;
+  overflow: auto;
+  gap: 4px;
+  padding-top: 6px;
+  outline: none;
+  scrollbar-width: thin;
+}
+
+.km-dropdown-option {
+  min-height: 52px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 9px 10px;
+  color: var(--ref-text);
+}
+
+.km-dropdown-option:hover,
+.km-dropdown-option.is-active {
+  border-color: #493b78;
+  background: var(--ref-card-selected);
+  transform: none;
+}
+
+.km-dropdown-option.is-selected {
+  color: var(--ref-text);
+}
+
+.km-dropdown-option-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: var(--ref-card);
+  color: var(--ref-purple-soft);
+}
+
+.km-dropdown-option-copy strong {
+  color: inherit;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.km-dropdown-option-copy small {
+  color: var(--ref-muted);
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+html[data-theme="light"] .km-dropdown-menu {
+  border-color: var(--ref-border-strong) !important;
+  background: #ffffff !important;
+  box-shadow: 0 20px 44px rgba(33, 43, 63, 0.16) !important;
+}
+
+html[data-theme="light"] .km-dropdown-menu-title,
+html[data-theme="light"] .km-dropdown-option-copy small {
+  color: #596579;
+}
+
+html[data-theme="light"] .km-dropdown-option:hover,
+html[data-theme="light"] .km-dropdown-option.is-active {
+  border-color: #cfc3f4;
+  background: #eee9ff;
+}
+
+html[data-theme="light"] .km-dropdown-option-icon {
+  background: #f1eefb;
+  color: #6039c5;
+}
+
+@container (max-width: 520px) {
+  .kizumail-redesign .list-header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: center;
+    min-height: 118px;
+    padding-block: 12px;
+  }
+
+  .kizumail-redesign .list-header > div:first-child {
+    order: 0;
+    width: 100%;
+  }
+
+  .kizumail-redesign .list-actions {
+    order: 1;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+html[data-theme="light"] .kizumail-redesign .setup-panel,
+html[data-theme="light"] .kizumail-redesign .empty-mail-list {
+  border-color: var(--ref-border-strong);
+  background: var(--ref-card) !important;
+  background-image: none !important;
+  color: var(--ref-text);
+  box-shadow: var(--ref-shadow) !important;
+}
+
+html[data-theme="light"] .kizumail-redesign .setup-panel h2,
+html[data-theme="light"] .kizumail-redesign .empty-mail-list h2 {
+  color: var(--ref-text);
+}
+
+html[data-theme="light"] .kizumail-redesign .setup-panel p,
+html[data-theme="light"] .kizumail-redesign .empty-mail-list p {
+  color: var(--ref-secondary);
+}
+
+html[data-theme="light"] .kizumail-redesign .reader-toolbar button:not(:disabled):hover {
+  border-color: var(--ref-border-strong);
+  background: var(--ref-card-hover);
+  color: var(--ref-text);
+}
+
+html[data-theme="light"] .kizumail-redesign .mail-row,
+html[data-theme="light"] .kizumail-redesign .mail-row.read:not(.selected),
+html[data-theme="light"] .kizumail-redesign .mail-row.unread:not(.selected) {
+  border-color: var(--ref-border);
+  background: var(--ref-card) !important;
+  color: var(--ref-text);
+}
+
+html[data-theme="light"] .kizumail-redesign .mail-row:hover {
+  border-color: var(--ref-border-strong);
+  background: var(--ref-card-hover) !important;
+}
+
+html[data-theme="light"] .kizumail-redesign .mail-row.selected {
+  border-color: #b7a7ed;
+  background: var(--ref-card-selected) !important;
+}
+
+html[data-theme="light"] .kizumail-redesign .mail-row-content strong,
+html[data-theme="light"] .kizumail-redesign .mail-row-content h2,
+html[data-theme="light"] .kizumail-redesign .mail-row time {
+  color: var(--ref-text);
+}
+
+html[data-theme="light"] .kizumail-redesign .mail-row-content p {
+  color: var(--ref-secondary);
+}
+
+html[data-theme="light"] .kizumail-redesign .nav-row,
+html[data-theme="light"] .kizumail-redesign .nav-row svg,
+html[data-theme="light"] .kizumail-redesign .account-label strong,
+html[data-theme="light"] .kizumail-redesign .account-label small,
+html[data-theme="light"] .kizumail-redesign .online-state {
+  color: var(--ref-secondary);
+}
+
+html[data-theme="light"] .kizumail-redesign .nav-row.active {
+  border-color: #cfc4f7;
+  background: var(--ref-card-selected) !important;
+  color: #352467;
+}
+
+html[data-theme="light"] .kizumail-redesign .nav-row.active svg {
+  color: #6844d3;
+}
+
+html[data-theme="light"] .kizumail-redesign .nav-row em {
+  border-color: var(--ref-border);
+  background: #e8ebf2;
+  color: #536076;
+}
+
+html[data-theme="light"] .kizumail-redesign .nav-row.active em {
+  border-color: #cfc4f7;
+  background: #ded4ff;
+  color: #5432b5;
+}
+
+html[data-theme="light"] .kizumail-redesign .workspace-heading h2,
+html[data-theme="light"] .kizumail-redesign .workspace-heading p,
+html[data-theme="light"] .kizumail-redesign .setting-switch,
+html[data-theme="light"] .kizumail-redesign .rule-item,
+html[data-theme="light"] .kizumail-redesign .newsletter-subscription,
+html[data-theme="light"] .kizumail-redesign .security-panel,
+html[data-theme="light"] .kizumail-redesign .oauth-panel {
+  color: var(--ref-text);
+}
+
+html[data-theme="light"] .kizumail-redesign .workspace-heading p,
+html[data-theme="light"] .kizumail-redesign .muted-note,
+html[data-theme="light"] .kizumail-redesign .newsletter-subscription span,
+html[data-theme="light"] .kizumail-redesign .newsletter-subscription small,
+html[data-theme="light"] .kizumail-redesign .newsletter-subscription p,
+html[data-theme="light"] .kizumail-redesign .security-panel p,
+html[data-theme="light"] .kizumail-redesign .security-check small,
+html[data-theme="light"] .kizumail-redesign .oauth-panel p,
+html[data-theme="light"] .kizumail-redesign .rule-item span {
+  color: var(--ref-secondary);
+}
+
+html[data-theme="light"] .kizumail-redesign .newsletter-subscription strong,
+html[data-theme="light"] .kizumail-redesign .security-panel h3,
+html[data-theme="light"] .kizumail-redesign .security-check b,
+html[data-theme="light"] .kizumail-redesign .oauth-panel h3,
+html[data-theme="light"] .kizumail-redesign .oauth-panel label,
+html[data-theme="light"] .kizumail-redesign .rule-item strong {
+  color: var(--ref-text);
+}
+
+html[data-theme="light"] .kizumail-redesign .newsletter-subscription-list {
+  background: transparent;
+}
+
+html[data-theme="light"] .kizumail-redesign .newsletter-actions button {
+  border-color: #cfc4f7;
+  background: #eee9ff;
+  color: #5636b4;
+}
+
+html[data-theme="light"] .kizumail-redesign .newsletter-actions button:last-child,
+html[data-theme="light"] .kizumail-redesign .security-actions button,
+html[data-theme="light"] .kizumail-redesign .rule-form button,
+html[data-theme="light"] .kizumail-redesign .rule-item button {
+  border-color: #7047dd;
+  background: var(--ref-purple) !important;
+  color: #fff;
+}
+
+html[data-theme="light"] .kizumail-redesign .security-audit.ok {
+  border-color: #9cd9b9;
+  background: #eefaf2;
+  color: #1c6b42;
+}
+
+html[data-theme="light"] .kizumail-redesign .security-audit.warn {
+  border-color: #e4cf8a;
+  background: #fff9e5;
+  color: #755b13;
+}
+/* Keep long local mailboxes responsive while off-screen cards retain layout space. */
+.mail-row {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 92px;
+}
+
+.kizumail-redesign .remote-media-gallery {
+  display: grid;
+  gap: 14px;
+  border-block: 1px solid var(--ref-border);
+  padding: 18px clamp(24px, 3.4vw, 48px);
+  background: var(--ref-panel);
+}
+
+.kizumail-redesign .remote-media-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.kizumail-redesign .remote-media-notice > div {
+  display: grid;
+  gap: 4px;
+}
+
+.kizumail-redesign .remote-media-notice strong {
+  color: var(--ref-text);
+  font-size: 13px;
+}
+
+.kizumail-redesign .remote-media-notice span {
+  color: var(--ref-muted);
+  font-size: 12px;
+}
+
+.kizumail-redesign .remote-media-notice button {
+  flex: 0 0 auto;
+  border: 1px solid var(--ref-border-strong);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: var(--ref-card);
+  color: var(--ref-text);
+  font-size: 12px;
+  font-weight: 700;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.kizumail-redesign .remote-media-notice button:hover {
+  border-color: var(--ref-accent, #7c4dff);
+  background: var(--ref-card-hover);
+  transform: translateY(-1px);
+}
+
+.kizumail-redesign .remote-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.kizumail-redesign .remote-media-card {
+  display: grid;
+  gap: 10px;
+  overflow: hidden;
+  border: 1px solid var(--ref-border);
+  border-radius: 8px;
+  padding: 10px;
+  background: var(--ref-card);
+}
+
+.kizumail-redesign .remote-media-card > img,
+.kizumail-redesign .remote-media-card > video,
+.kizumail-redesign .remote-media-card > iframe {
+  display: block;
+  width: 100%;
+  min-height: 170px;
+  max-height: 360px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--ref-app);
+  object-fit: contain;
+}
+
+.kizumail-redesign .remote-media-card > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+
+.kizumail-redesign .remote-media-card strong {
+  overflow: hidden;
+  color: var(--ref-secondary);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kizumail-redesign .remote-media-card a {
+  flex: 0 0 auto;
+  color: var(--ref-accent, #9c7cff);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+@media (max-width: 720px) {
+  .kizumail-redesign .remote-media-notice {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .kizumail-redesign .remote-media-notice button {
+    width: 100%;
+  }
+}
+
+.message-detail-loading {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 18px;
+  align-content: start;
+  margin: 22px;
+  padding: 28px;
+  border: 1px solid var(--line, rgba(255, 255, 255, 0.08));
+  border-radius: 8px;
+  background: var(--surface-raised, #111720);
+}
+
+.message-detail-loading h2,
+.message-detail-loading p {
+  margin: 4px 0 0;
+}
+
+.detail-loading-kicker {
+  color: var(--text-muted, #8f98a6);
+  font-size: 12px;
+}
+
+.detail-loading-bar {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 12px;
+  margin-top: 18px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.18), transparent);
+  background-size: 220% 100%;
+  animation: detail-loading 1.4s ease-in-out infinite;
+}
+
+.detail-loading-bar.short {
+  width: 62%;
+  margin-top: 0;
+}
+
+@keyframes detail-loading {
+  from { background-position: 100% 0; }
+  to { background-position: -120% 0; }
+}

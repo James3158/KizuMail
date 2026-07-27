@@ -1,0 +1,10 @@
+{
+  "gmail": {
+    "clientId": "YOUR_GOOGLE_DESKTOP_CLIENT_ID.apps.googleusercontent.com",
+    "clientSecret": "OPTIONAL_GOOGLE_CLIENT_SECRET_FROM_DOWNLOADED_JSON"
+  },
+  "microsoft": {
+    "clientId": "YOUR_MICROSOFT_ENTRA_PUBLIC_CLIENT_ID",
+    "redirectUri": "http://127.0.0.1:53682/oauth/callback"
+  }
+}
