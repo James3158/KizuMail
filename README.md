@@ -2,15 +2,18 @@
 
 KizuMail is an open-source, local-first desktop email client with a modern interface, multi-account synchronization, newsletter tools, and optional AI features.
 
-The application is currently Windows-first and in active alpha development. It is already usable as a personal email client, but it should not yet be treated as a fully audited replacement for mature production clients.
+The application is in early alpha development and currently supports Windows only. It should not yet be treated as a fully audited replacement for mature production clients.
 
-## Project transparency
+## Platform status
 
-KizuMail is intentionally and openly a vibe-coded, AI-assisted project.
+- **Windows:** alpha. Current builds are not code-signed.
+- **macOS:** not supported yet; planned. Credential-store integration and packaging are currently Windows-specific.
 
-The project creator conceived the product, defined its behavior and visual direction, tested the application, reported defects, and made the product decisions as a junior developer. Most implementation work was created and iterated in collaboration with OpenAI Codex using GPT-5.5 and GPT-5.6.
+## AI-assisted development
 
-This history is documented deliberately: the project does not pretend that every line was written manually. AI assistance does not remove the need for review, testing, security analysis, or responsible maintenance. Contributions that improve correctness, portability, documentation, and security are welcome.
+KizuMail was developed with AI assistance. The project creator defined the concept, made architecture and product decisions, tested the application, and reviewed the implementation. Most code was developed and iterated with OpenAI Codex using GPT-5.5 and GPT-5.6.
+
+AI assistance does not replace testing, review, or maintenance. KizuMail has not received an independent external security audit. Contributions that improve correctness, portability, documentation, and security are welcome.
 
 ## Current features
 
@@ -124,7 +127,7 @@ cd KizuMail
 npm install
 ```
 
-There is currently no supported macOS release. The Rust credential-store integration and packaging configuration are still Windows-specific, so macOS support requires a dedicated portability pass before the Tauri app can be built and distributed as a signed `.app` or `.dmg`.
+macOS support is planned, but there is currently no supported macOS release. The Rust credential-store integration and packaging configuration are still Windows-specific, so macOS support requires a dedicated portability pass before the Tauri app can be built and distributed as a signed `.app` or `.dmg`.
 
 An Intel Mac targets `x86_64-apple-darwin`; Apple Silicon targets `aarch64-apple-darwin`.
 
