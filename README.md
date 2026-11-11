@@ -11,7 +11,7 @@ The application is in early alpha development and currently supports Windows onl
 
 ## AI-assisted development
 
-KizuMail was developed with AI assistance. The project creator defined the concept, made architecture and product decisions, tested the application, and reviewed the implementation. Most code was developed and iterated with OpenAI Codex using GPT-5.5 and GPT-5.6.
+KizuMail was developed with AI assistance. The project creator defined the concept, made architecture and product decisions, and tested the application. Most code was developed and iterated with OpenAI Codex using GPT-5.5 and GPT-5.6.
 
 AI assistance does not replace testing, review, or maintenance. KizuMail has not received an independent external security audit. Contributions that improve correctness, portability, documentation, and security are welcome.
 
